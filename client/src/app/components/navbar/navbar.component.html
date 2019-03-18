@@ -1,0 +1,47 @@
+<nav class="navbar navbar-expand-sm navbar-dark bg-danger">
+  <div class="container-fluid">
+    <!-- spinner -->
+    <div *ngIf="isLoading" class="spinner-border text-light" role="status">
+      <span class="sr-only">Loading...</span>
+    </div>
+    <!-- Navbar title -->
+    <a class="navbar-brand" routerLink="" routerLinkActive="active">
+      <fa name="shopping-cart" class="pr-2"></fa>ngMarket</a
+    >
+    <!-- Navbar collapse button -->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mobile-nav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <!-- links -->
+    <div class="collapse navbar-collapse" id="mobile-nav">
+      <ul class="navbar-nav mr-auto">
+        <li *ngIf="authService.loggedIn()" class="nav-item">
+          <a class="nav-link" routerLink="/dashboard" routerLinkActive="active">Shop Now!</a>
+        </li>
+      </ul>
+      <!-- shop info -->
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link disabled" href="#" routerLinkActive="active"
+            ><span class="badge badge-dark mr-1"> <fa name="phone" class="pr-2"></fa>1800-80-80-80</span></a
+          >
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="mailto:ng-market@mail.com" routerLinkActive="active"
+            ><span class="badge badge-dark"> <fa name="envelope" class="pr-2"></fa>ngMarket@mail.com</span></a
+          >
+        </li>
+        <!-- Login/ Register/ Logout -->
+        <li *ngIf="!authService.loggedIn()" class="nav-item">
+          <a class="nav-link" routerLink="/login" routerLinkActive="active">Login</a>
+        </li>
+        <li *ngIf="!authService.loggedIn()" class="nav-item">
+          <a class="nav-link" routerLink="/register" routerLinkActive="active">Register</a>
+        </li>
+        <li *ngIf="authService.loggedIn()" (click)="logout()" class="nav-item" style="cursor:pointer">
+          <a class="nav-link">Logout</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

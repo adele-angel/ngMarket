@@ -1,0 +1,65 @@
+<div class="row">
+  <div *ngIf="!authService.loggedIn()" class="col-md">
+    <app-login></app-login>
+    <app-register></app-register>
+  </div>
+  <div class="col-md border bg-light">
+    <h1 class="text-danger text-center m-3"><fa name="shopping-cart" class="pr-2"></fa>ngMarket</h1>
+    <p class="m-4">
+      ngMarket is Israel's leading retail food chain As Israel's longest-standing supermarket chain - whose first branch
+      was launched as early as 2019. We are proud of ngMarket, which continues to evolve and lead the market, featuring
+      steady growth.
+    </p>
+    <p class="text-center">
+      <img
+        src="./assets/images/about-intro.jpg"
+        class="img-fluid rounded border border-danger p-1"
+        alt="Products Info"
+      />
+    </p>
+  </div>
+  <div class="col-md bg-dark p-4">
+    <p class="mx-4"><img src="./assets/images/about-info.jpg" class="img-fluid rounded" alt="Products Info" /></p>
+    <!-- spinner -->
+    <div *ngIf="isLoading" class="spinner-border text-danger" role="status">
+      <span class="sr-only">Loading...</span>
+    </div>
+    <div class="text-center text-white border rounded p-1 mx-5 my-4">
+      <span
+        ><strong>{{ productsTotal }}</strong></span
+      >
+      products are now available in our store!<br />
+      <span
+        ><strong>{{ ordersTotal }}</strong></span
+      >
+      orders has been purchased on our site
+    </div>
+
+    <div *ngIf="user" class="text-center bg-warning border rounded p-1 mx-5">
+      <app-notification-panel [user]="user"></app-notification-panel>
+    </div>
+  </div>
+</div>
+
+<!-- The Modal -->
+<div class="modal" id="mainModal" [ngStyle]="{ display: display }">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <!-- Modal Header -->
+      <div class="modal-header bg-dark text-white text-center">
+        <h4 class="modal-title" [innerHTML]="modalHeader ? modalHeader : 'Success!'"></h4>
+        <button type="button" (click)="onCloseHandled()" class="close" data-dismiss="modal" routerLink="/">
+          &times;
+        </button>
+      </div>
+      <!-- Modal body -->
+      <div class="modal-body" *ngIf="modalBody" [innerHTML]="modalBody"></div>
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" (click)="onCloseHandled()" class="btn btn-danger" data-dismiss="modal" routerLink="/">
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
