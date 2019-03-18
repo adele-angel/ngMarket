@@ -18,6 +18,7 @@ https://ngmarket.herokuapp.com/
 - View, add, edit and delete products
 
 > To login as administrator use the following email and password
+
     Username: admin@mail.com
     Password: 1234
 
