@@ -61,11 +61,11 @@ angular-font-awesome
 - Angular 6
 - TypeScript
 - Node.js
- * Express.js
- * RESTfull application
+	* Express.js
+	* RESTfull application
 - MongoDB
- - Database queries
- - Mongoose ODM
+	* Database queries
+	* Mongoose ODM
  
  # Client
 
